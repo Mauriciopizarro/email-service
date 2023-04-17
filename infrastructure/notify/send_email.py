@@ -3,7 +3,8 @@ from config import settings
 import smtplib
 from email.message import EmailMessage
 from domain.interfaces.notify_users import NotifyUser
-from infrastructure.notify.templates.register_mail import get_body_mail
+from infrastructure.notify.templates.register_mail import get_body_mail_new_register
+from infrastructure.notify.templates.reset_password_email import get_body_mail_reset_pass
 
 
 class SendEmail(NotifyUser):
@@ -25,29 +26,8 @@ class SendEmail(NotifyUser):
 
     @staticmethod
     def get_password_updated_mail(username):
-        html = """
-                <html>
-                  <head>
-                    <style>
-                      body {{
-                        font-family: Arial, sans-serif;
-                        font-size: 14px;
-                        color: #333;
-                      }}
-                      h1 {{
-                        color: #007bff;
-                      }}
-                    </style>
-                  </head>
-                  <body>
-                    <h1>Hi {username}</h1>
-                    <p>Password updated successfully</p>
-                  </body>
-                </html>
-                """.format(username=username)
-
-        return html
+        return get_body_mail_reset_pass(username)
 
     @staticmethod
     def get_user_created_mail(username):
-        return get_body_mail(username)
+        return get_body_mail_new_register(username)
