@@ -1,5 +1,5 @@
 
-def get_body_mail_new_register(username):
+def get_body_mail_reset_pass(username):
     body = """
     <html>
       <head>
@@ -44,11 +44,11 @@ def get_body_mail_new_register(username):
       </head>
       <body>
         <header>
-          <h1>¡Welcome {username}!</h1>
+          <h1>¡Hi {username}!</h1>
         </header>
         <div class="content">
-          <p>¡Welcome {username}!</p>
-          <p>Thank you for registering on our site. We are excited to have you as part of our community.</p>
+          <p>¡Password successfully updated for user {username}!</p>
+          <p>You can login with the new credentials now.</p>
           <p>All the best</p>
           <p>App team</p>
         </div>
