@@ -4,6 +4,7 @@ import smtplib
 from email.message import EmailMessage
 from domain.interfaces.notify_users import NotifyUser
 from infrastructure.notify.templates.register_mail import get_body_mail_new_register
+from infrastructure.notify.templates.register_mail_v2 import get_body
 from infrastructure.notify.templates.reset_password_email import get_body_mail_reset_pass
 from infrastructure.notify.templates.code_verification_email import get_body_mail_verification_code
 
@@ -31,7 +32,7 @@ class SendEmail(NotifyUser):
 
     @staticmethod
     def get_user_created_mail(username):
-        return get_body_mail_new_register(username)
+        return get_body(username)
 
     @staticmethod
     def get_validation_code_send_email(code):
