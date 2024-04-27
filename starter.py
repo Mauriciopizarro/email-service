@@ -4,12 +4,10 @@ from threading import Thread
 
 
 def start():
-    # We configure consumers
-
-    #password_updated_send_email
-    Thread(target=PassResetSendEmailListener).start()
-    #user_created_send_email
+    time.sleep(10)
     Thread(target=UserCreatedSendEmailListener).start()
+    Thread(target=ResetPassVerificationCodelListener).start()
+    Thread(target=PassResetSendEmailListener).start()
 
 
 if __name__ == "__main__":
