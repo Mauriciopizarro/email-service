@@ -7,8 +7,9 @@ import time
 def start():
     time.sleep(10)
     Thread(target=UserCreatedSendEmailListener).start()
-    Thread(target=PassResetSendEmailListener).start()
     Thread(target=ResetPassVerificationCodelListener).start()
+    Thread(target=PassResetSendEmailListener).start()
+
 
 
 if __name__ == "__main__":
